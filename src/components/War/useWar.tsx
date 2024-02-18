@@ -7,10 +7,12 @@ interface IParams {
 }
 
 export function useWar(props: IParams) {
-  const { setWar } = props;
+  const { setWar, selectedLive } = props;
+
   async function getWar(): Promise<void> {
-    // use war.endpoint to fetch war
-    const response = await fetchWar();
+    console.log(`selectedLive: ${selectedLive}`);
+    
+    const response = await fetchWar({ live:selectedLive });
 
     setWar(response);
   }

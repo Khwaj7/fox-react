@@ -4,6 +4,9 @@ import { useWar } from "./components/War/useWar";
 import { War } from "./modules/models/war";
 import Button from "@mui/joy/Button";
 import "@fontsource/inter";
+import ButtonGroup from '@mui/joy/ButtonGroup';
+import Snackbar from '@mui/joy/Snackbar';
+
 
 function App() {
   const [selectedLive, setSelectedLive] = useState(1);
@@ -11,16 +14,22 @@ function App() {
 
   const { getWar } = useWar({ setWar, selectedLive });
 
+  function retrieveWar() {
+    
+  }
+
   //getWar({ setWar });
 
   return (
     <>
-      <div>
-        <button onClick={() => setSelectedLive(1)}>LIVE-1</button>
-        <button onClick={() => setSelectedLive(2)}>LIVE-2</button>
-        <button onClick={() => setSelectedLive(1)}>LIVE-3</button>
-      </div>
-      <Button variant="solid" onClick={() => getWar()}>{war.warId}</Button>
+      <ButtonGroup variant="soft">
+        <Button onClick={() => setSelectedLive(1)}>LIVE-1</Button>
+        <Button onClick={() => setSelectedLive(2)}>LIVE-2</Button>
+        <Button onClick={() => setSelectedLive(3)}>LIVE-3</Button>
+      </ButtonGroup>
+      <Button variant="solid" onClick={() => getWar()}>Get warID</Button>
+      <p>{war.warId}</p>
+      <Snackbar color="danger" variant="solid" />
     </>
   );
 }
