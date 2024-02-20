@@ -20,6 +20,7 @@ export function useWar(props: IParams) {
     } catch (error) {
       console.error(error);
       setFetchError(`${error}`);
+      setWar({} as War);
       setOpen(true);
     }
   }
