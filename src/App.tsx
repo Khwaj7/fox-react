@@ -5,11 +5,7 @@ import { War } from "./modules/models/war";
 import Button from "@mui/joy/Button";
 import "@fontsource/inter";
 import ButtonGroup from "@mui/joy/ButtonGroup";
-import { Snackbar, SnackbarOrigin } from "@mui/joy";
-
-interface SnackbarState extends SnackbarOrigin {
-  open: boolean;
-}
+import { Snackbar } from "@mui/joy";
 
 function App() {
   const [selectedLive, setSelectedLive] = useState(1);
