@@ -1,0 +1,29 @@
+.warComp {
+  display: flex;
+  justify-content: center;
+}
+
+.hexagon-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.hexagon {
+  width: 100px;
+  height: 115px; /* Adjust height accordingly for perfect hexagons */
+  background-color: #3498db;
+  position: relative;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  margin: 5px; /* Adjust margin for spacing between hexagons */
+}
+
+/* Optional: Center content inside the hexagon */
+.hexagon-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}

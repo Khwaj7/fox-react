@@ -6,6 +6,7 @@ import Button from "@mui/joy/Button";
 import "@fontsource/inter";
 import ButtonGroup from "@mui/joy/ButtonGroup";
 import { Snackbar } from "@mui/joy";
+import { WarComponent } from "./components/War/war.component";
 
 function App() {
   const [selectedLive, setSelectedLive] = useState(1);
@@ -22,13 +23,18 @@ function App() {
         <Button onClick={() => setSelectedLive(1)}>LIVE-1</Button>
         <Button onClick={() => setSelectedLive(2)}>LIVE-2</Button>
         <Button onClick={() => setSelectedLive(3)}>LIVE-3</Button>
+        <Button variant="solid" onClick={() => getWar()}>
+          Retrieve war info
+        </Button>
       </ButtonGroup>
-      <Button variant="solid" onClick={() => getWar()}>
-        Get warID
-      </Button>
-      <p>{war.warId}</p>
+      {war && <WarComponent war={war} />}
       {fetchError && (
-        <Snackbar color="danger" open={open}>
+        <Snackbar
+          color="danger"
+          open={open}
+          autoHideDuration={3000}
+          onClose={() => setOpen(false)}
+        >
           {fetchError}
         </Snackbar>
       )}
