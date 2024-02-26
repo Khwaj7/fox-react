@@ -50,7 +50,7 @@ export function WarComponent(props: WarComponentProps): JSX.Element {
           {fetchError}
         </Snackbar>
       )}
-      {fetchError && (
+      {!fetchError && (
         <div className="hexagon-container">
           <div className="hexagon">
             <div className="hexagon-content">Hexagon 1</div>
