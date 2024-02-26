@@ -19,4 +19,8 @@ export function useMaps(params: IParams) {
       setMaps([]);
     }
   }
+
+  return {
+    getMaps,
+  }
 }

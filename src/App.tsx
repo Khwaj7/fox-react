@@ -27,7 +27,7 @@ function App() {
           Retrieve war info
         </Button>
       </ButtonGroup>
-      {war && <WarComponent war={war} />}
+      {war && <WarComponent war={war} selectedLive={selectedLive} />}
       {fetchError && (
         <Snackbar
           color="danger"
