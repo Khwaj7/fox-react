@@ -1,5 +1,5 @@
 import { Card, Snackbar, Typography } from "@mui/joy";
-import { War, Winner } from "../../modules/models/war";
+import { War } from "../../modules/models/war";
 import "./war.style.css";
 import { useEffect, useState } from "react";
 import { useMaps } from "../Maps/useMaps";
@@ -52,15 +52,11 @@ export function WarComponent(props: WarComponentProps): JSX.Element {
       )}
       {!fetchError && (
         <div className="hexagon-container">
-          <div className="hexagon">
-            <div className="hexagon-content">Hexagon 1</div>
-          </div>
-          <div className="hexagon">
-            <div className="hexagon-content">Hexagon 2</div>
-          </div>
-          <div className="hexagon">
-            <div className="hexagon-content">Hexagon 3</div>
-          </div>
+          {maps.map((map, index) => (
+            <div key={index} className="hexagon">
+              <div className="hexagon-content">{map}</div>
+            </div>
+          ))}
         </div>
       )}
     </>
