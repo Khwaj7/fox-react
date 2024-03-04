@@ -13,3 +13,7 @@ export async function fetchMaps(props: IParams): Promise<string[]> {
   const maps = (await response.json()) as string[];
   return maps;
 }
+
+export async function getWinner(map:Map) {
+  
+}

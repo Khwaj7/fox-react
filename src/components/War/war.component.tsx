@@ -39,6 +39,12 @@ export function WarComponent(props: WarComponentProps): JSX.Element {
         <Typography>
           Number of required towns to win: {war.requiredVictoryTowns}
         </Typography>
+        <Typography>
+          Number of towns controlled by Colonials: {war.requiredVictoryTowns}
+        </Typography>
+        <Typography>
+          Number of towns controlled by Wardens: {war.requiredVictoryTowns}
+        </Typography>
       </Card>
       {fetchError && (
         <Snackbar

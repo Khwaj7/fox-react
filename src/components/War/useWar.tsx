@@ -3,19 +3,18 @@ import type { War } from "../../modules/models/war";
 
 interface IParams {
   setWar: (war: War) => void;
-  selectedLive: number;
   setFetchError: (error: string) => void;
   setOpen: (open: boolean) => void;  
 }
 
 export function useWar(props: IParams) {
-  const { setWar, selectedLive, setFetchError, setOpen } = props;
+  const { setWar, setFetchError, setOpen } = props;
 
-  async function getWar(): Promise<void> {
-    console.log(`selectedLive: ${selectedLive}`);
+  async function getWar(selected: number): Promise<void> {
+    console.log(`selectedLive: ${selected}`);
 
     try {
-      const response = await fetchWar({ live: selectedLive });
+      const response = await fetchWar({ live: selected });
       setWar(response);
     } catch (error) {
       console.error(error);

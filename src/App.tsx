@@ -15,17 +15,19 @@ function App() {
 
   const [open, setOpen] = useState(false);
 
-  const { getWar } = useWar({ setWar, selectedLive, setFetchError, setOpen });
+  const { getWar } = useWar({ setWar, setFetchError, setOpen });
+
+  const handleSelectLive = (selected: number) => {
+    setSelectedLive(selected);
+    getWar(selected);
+  }
 
   return (
     <>
       <ButtonGroup variant="soft">
-        <Button onClick={() => setSelectedLive(1)}>LIVE-1</Button>
-        <Button onClick={() => setSelectedLive(2)}>LIVE-2</Button>
-        <Button onClick={() => setSelectedLive(3)}>LIVE-3</Button>
-        <Button variant="solid" onClick={() => getWar()}>
-          Retrieve war info
-        </Button>
+        <Button onClick={() => handleSelectLive(1)}>LIVE-1</Button>
+        <Button onClick={() => handleSelectLive(2)}>LIVE-2</Button>
+        <Button onClick={() => handleSelectLive(3)}>LIVE-3</Button>
       </ButtonGroup>
       {war && <WarComponent war={war} selectedLive={selectedLive} />}
       {fetchError && (

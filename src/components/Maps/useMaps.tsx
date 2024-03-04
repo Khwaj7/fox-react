@@ -13,6 +13,7 @@ export function useMaps(params: IParams) {
     try {
       const response = await fetchMaps({ live: liveServer });
       setMaps(response as string[]);
+      setFetchError("");
     } catch (error) {
       console.error(error);
       setFetchError(`${error}`);
